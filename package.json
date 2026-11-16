@@ -1,0 +1,31 @@
+{
+  "name": "studyplanner",
+  "version": "2.2.0",
+  "description": "Smart study companion PWA: exams, flashcards, Pomodoro, attendance, AI chatbot.",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check app.js && node --check utils.js && node --check sw.js",
+    "serve": "npx serve ."
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "homepage": "https://midhun-creator.github.io/studyplanner/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/midhun-creator/studyplanner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/midhun-creator/studyplanner/issues"
+  },
+  "keywords": [
+    "pwa",
+    "study-planner",
+    "supabase",
+    "pomodoro",
+    "flashcards",
+    "vanilla-js"
+  ]
+}

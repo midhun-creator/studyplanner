@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 150" width="1200" height="150" role="img" aria-labelledby="t d">
+<title id="t">Plan. Focus. Revise. Repeat.</title>
+<desc id="d">Closing banner with an animated wave.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00261f"/><stop offset=".55" stop-color="#004d40"/><stop offset="1" stop-color="#00695c"/></linearGradient>
+<pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#ffffff" fill-opacity=".09"/></pattern>
+<filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#80cbc4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<style>
+text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.h{font-size:13px;font-weight:700;letter-spacing:2px;fill:#80cbc4}
+.ti{font-size:21px;font-weight:700;fill:#fff}
+.ds{font-size:15px;fill:#b2dfdb}
+.sm{font-size:13px;fill:#b2dfdb}
+.k{font-size:11px;font-weight:700;letter-spacing:1.8px}
+.mid{text-anchor:middle}
+@keyframes dash{to{stroke-dashoffset:-11}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.dot{animation:blink 1.6s ease-in-out infinite}
+.wave{animation:wv 6s linear infinite}
+@keyframes wv{to{transform:translateX(-300px)}}
+.fw{font-size:30px;font-weight:800;fill:#fff;text-anchor:middle;letter-spacing:-.5px}
+.fw tspan{fill:#ffd54f}
+
+</style>
+<rect width="1200" height="150" rx="22" fill="url(#bg)"/>
+<rect width="1200" height="150" rx="22" fill="url(#dots)"/>
+<clipPath id="c"><rect width="1200" height="150" rx="22"/></clipPath>
+<g clip-path="url(#c)"><g class="wave"><path d="M-300,112 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 V150 H-300 Z" fill="#ffffff" fill-opacity=".07"/></g><g class="wave" style="animation-duration:9s"><path d="M-300,124 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 q75,-28 150,0 t150,0 V150 H-300 Z" fill="#ffd54f" fill-opacity=".10"/></g></g>
+<text class="fw" x="600" y="76">Plan. <tspan>Focus.</tspan> Revise. <tspan>Repeat.</tspan></text>
+</svg>

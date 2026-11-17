@@ -9,7 +9,7 @@ Timetable, Pomodoro, flashcards, attendance, CGPA and an AI tutor, all offline-r
 
 <br />
 
-[**Open the app**](https://midhun-creator.github.io/studyplanner/) &nbsp;·&nbsp; [A study day](#a-study-day-in-order) &nbsp;·&nbsp; [Under the hood](#under-the-hood) &nbsp;·&nbsp; [Run it](#run-it-yourself) &nbsp;·&nbsp; [Roadmap](#roadmap)
+[**Open the app**](https://midhun-creator.github.io/studyplanner/) &nbsp;·&nbsp; [A study day](#a-study-day) &nbsp;·&nbsp; [Under the hood](#under-the-hood) &nbsp;·&nbsp; [Run it](#run-it) &nbsp;·&nbsp; [Roadmap](#roadmap)
 
 <br />
 
@@ -19,32 +19,13 @@ Timetable, Pomodoro, flashcards, attendance, CGPA and an AI tutor, all offline-r
 
 <br />
 
-## A study day, in order
+## A study day
 
 Most planners are a pile of features. StudyPlanner is arranged the way a student's day actually runs.
 
-**07:30 &nbsp; Check in**
-The dashboard shows your streak, task progress, reminders that are due, and how many days are left to the next exam.
-
-**09:00 &nbsp; Focus**
-A Pomodoro timer with study, short-break and long-break modes. It runs on the wall clock, so a background tab never drifts. Log the session against a subject when you finish.
-
-**11:00 &nbsp; Capture**
-Tagged, searchable notes. Semester notes sit next to the PDFs your admins publish for each subject.
-
-**14:00 &nbsp; Revise**
-Build flashcards per subject and flip through the deck.
-
-**16:00 &nbsp; Ask**
-Stuck? Ask the Gemini-powered tutor, or send a study request to your admin for materials or a timetable and get the reply inside the app.
-
-**18:00 &nbsp; Track**
-Study-time breakdowns, per-subject attendance calendars, and semester marks with CGPA trends in Chart.js.
-
-**21:00 &nbsp; Plan tomorrow**
-Add exams to the timetable, set one-off or recurring reminders, and tick off tasks. Export your data as CSV any time.
-
-> **For admins:** student reports and analytics, PDF uploads per semester, attendance overview, user management, and a queue of study requests to answer.
+<div align="center">
+  <img src="docs/day.svg" alt="A study day in order: 07:30 dashboard check-in, 09:00 Pomodoro focus, 11:00 notes, 14:00 flashcards, 16:00 AI tutor and study requests, 18:00 analytics, 21:00 planning. Admins get reports, PDF uploads, attendance overview, user management and a request queue." width="900" />
+</div>
 
 <br />
 
@@ -52,63 +33,84 @@ Add exams to the timetable, set one-off or recurring reminders, and tick off tas
 
 No framework and no bundler. Open `index.html` and it runs.
 
+<div align="center">
+  <img src="docs/arch.svg" alt="A vanilla JavaScript PWA talks to Supabase for auth, Postgres with row level security and storage, and to an Edge Function that holds the Gemini key." width="900" />
+</div>
+
+<br />
+
+<div align="center">
+
+`JavaScript ES2020` &nbsp;·&nbsp; `Supabase` &nbsp;·&nbsp; `Chart.js 4.4` &nbsp;·&nbsp; `Gemini via Edge Function` &nbsp;·&nbsp; `GitHub Pages`
+
+</div>
+
+<br />
+
+## Security
+
+<div align="center">
+  <img src="docs/security.svg" alt="A request to read your own notes passes the browser, Supabase Auth and row level security. A forged admin reply is blocked by row level security in the database." width="900" />
+</div>
+
+<br />
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**Admin is a server-side claim.**
+The role lives in `app_metadata`, which users cannot edit, and no admin email ships in the source.
+
+</td>
+<td width="50%" valign="top">
+
+**Students cannot forge replies.**
+Only an admin can write a response to a study request.
+
+</td>
+</tr>
+<tr>
+<td valign="top">
+
+**No raw HTML from users.**
+Notes, requests and names are rendered with `textContent`.
+
+</td>
+<td valign="top">
+
+**The Gemini key stays server-side.**
+It lives in Edge Function secrets and never reaches the browser.
+
+</td>
+</tr>
+</table>
+
+The Supabase publishable key in `app.js` is public by design. RLS is what protects the data. Known gap: the CSP still allows inline handlers (see the roadmap).
+
+<br />
+
+## Run it
+
+### Quick look
+
+```bash
+git clone https://github.com/midhun-creator/studyplanner.git
+cd studyplanner
+python3 -m http.server 8000      # or: npx serve .
 ```
-   Browser (vanilla JS, installable PWA)
-   ┌───────────────────────────────────────────────┐
-   │  index.html · style.css · app.js · utils.js   │
-   │  Service worker: offline shell + cached CDN   │
-   └───────┬───────────────────────────┬───────────┘
-           │ supabase-js               │ chat
-           ▼                           ▼
-   ┌──────────────────────┐    ┌───────────────────┐
-   │ Supabase             │    │ Edge Function     │
-   │  Auth (email, Google)│    │  gemini-proxy     │──▶ Gemini
-   │  Postgres + RLS      │    │  key stays here   │
-   │  Storage (pdfs)      │    └───────────────────┘
-   └──────────────────────┘
-```
 
-| Piece | Choice |
-|---|---|
-| UI | HTML, CSS, vanilla JavaScript (ES2020) |
-| Data and auth | Supabase |
-| Charts | Chart.js 4.4 |
-| AI | Gemini, called only through the Edge Function |
-| Hosting | GitHub Pages, deployed by Actions |
+Open http://localhost:8000.
 
-### Security, plainly
+### Connect your own Supabase
 
-- **The database is the lock, not the UI.** Hiding a button is cosmetic. Every table has Row Level Security: students touch only their own rows.
-- **Admin is a server-side claim.** The role lives in `app_metadata`, which users cannot edit, and no admin email is shipped in the source.
-- **Students cannot forge admin replies.** Only an admin can write a response to a study request.
-- **User text is rendered with `textContent`**, never raw `innerHTML`.
-- **The Gemini key never reaches the browser.**
-- The Supabase publishable key in `app.js` is public by design. RLS is what protects the data.
-- Known gap: the CSP still allows inline handlers. It is on the roadmap.
+**1. Create the project.** Make a free [Supabase](https://supabase.com) project and put its URL and publishable key in `CONFIG` at the top of `app.js`.
 
-<br />
+**2. Create the schema.** Run [`supabase/schema.sql`](supabase/schema.sql) in the SQL Editor. It creates the tables, the `pdfs` bucket and every RLS policy.
 
-## Run it yourself
+**3. Turn on sign-in.** Under Authentication → Providers, enable Email and Google, and switch on **Confirm email**. Add your site URL to the redirect URLs.
 
-<details>
-<summary><b>1 · Set up Supabase</b></summary>
-
-<br />
-
-1. Create a free [Supabase](https://supabase.com) project.
-2. Put its URL and publishable key in `CONFIG` at the top of `app.js`.
-3. Run [`supabase/schema.sql`](supabase/schema.sql) in the SQL Editor. It creates the tables, the `pdfs` bucket and all RLS policies.
-4. Under **Authentication → Providers**, enable Email and Google, and turn on **Confirm email**.
-5. Add your site URL to the allowed redirect URLs.
-
-</details>
-
-<details>
-<summary><b>2 · Make yourself admin</b></summary>
-
-<br />
-
-Sign up normally, then run in the SQL Editor:
+**4. Make yourself admin.** Sign up, then run this and sign back in:
 
 ```sql
 update auth.users
@@ -116,14 +118,7 @@ set raw_app_meta_data = coalesce(raw_app_meta_data, '{}'::jsonb) || '{"isAdmin":
 where email = 'you@example.com';
 ```
 
-Sign out and back in.
-
-</details>
-
-<details>
-<summary><b>3 · Turn on the AI tutor (optional)</b></summary>
-
-<br />
+**5. Optional: the AI tutor.**
 
 ```bash
 supabase functions deploy gemini-proxy
@@ -132,29 +127,14 @@ supabase secrets set GEMINI_API_KEY=<your-key>
 
 Get a key at [Google AI Studio](https://aistudio.google.com/apikey).
 
-</details>
-
-<details>
-<summary><b>4 · Start it and test it</b></summary>
-
-<br />
-
-```bash
-git clone https://github.com/midhun-creator/studyplanner.git
-cd studyplanner
-python3 -m http.server 8000      # or: npx serve .
-```
-
-Open http://localhost:8000, then:
+### Test and deploy
 
 ```bash
 npm test          # 12 unit tests, Node 18+
 npm run check     # syntax check
 ```
 
-Deploys happen on every push to `main`. Enable **Settings → Pages → Source: GitHub Actions** once.
-
-</details>
+Every push to `main` deploys to GitHub Pages. Enable **Settings → Pages → Source: GitHub Actions** once.
 
 <details>
 <summary><b>Keyboard shortcuts</b></summary>
@@ -184,7 +164,8 @@ index.html   app shell and screens        sw.js          service worker
 style.css    themes and components        manifest.json  PWA manifest
 app.js       application logic            supabase/      schema and RLS
 utils.js     pure helpers, unit-tested    tests/         node:test suite
-icons/       PWA and social images        docs/          banner, project abstract
+icons/       PWA and social images        docs/          README art, project abstract
+scripts/     publish.sh helper
 ```
 
 </details>
@@ -193,12 +174,28 @@ icons/       PWA and social images        docs/          banner, project abstrac
 
 ## Roadmap
 
+<table>
+<tr>
+<th width="50%" align="left">Next up</th>
+<th width="50%" align="left">Later</th>
+</tr>
+<tr>
+<td valign="top">
+
 - [ ] Split `app.js` into ES modules
 - [ ] Replace inline `onclick` handlers, then drop `'unsafe-inline'` from the CSP
 - [ ] Integration tests for the Supabase flows
+
+</td>
+<td valign="top">
+
 - [ ] Push notifications for reminders
 - [ ] CSV and PDF export of study analytics
 - [ ] Internationalisation
+
+</td>
+</tr>
+</table>
 
 <br />
 
@@ -208,7 +205,10 @@ A minor project from the Department of Computer Hardware Engineering, Government
 
 Built by Sajeeshna M, Maya P.M and Binnya D. Maintained by [Midhu](https://github.com/midhun-creator).
 
+<br />
+
 <div align="center">
+  <img src="docs/footer.svg" alt="Plan. Focus. Revise. Repeat." width="900" />
 
 <br />
 

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 390" width="1200" height="390" role="img" aria-labelledby="t d">
+<title id="t">Where the lock really is</title>
+<desc id="d">A legitimate request passes the browser, authentication and row level security to reach your own rows. A forged admin reply is stopped by row level security in the database.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00261f"/><stop offset=".55" stop-color="#004d40"/><stop offset="1" stop-color="#00695c"/></linearGradient>
+<pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#ffffff" fill-opacity=".09"/></pattern>
+<filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#80cbc4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<style>
+text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.h{font-size:13px;font-weight:700;letter-spacing:2px;fill:#80cbc4}
+.ti{font-size:21px;font-weight:700;fill:#fff}
+.ds{font-size:15px;fill:#b2dfdb}
+.sm{font-size:13px;fill:#b2dfdb}
+.k{font-size:11px;font-weight:700;letter-spacing:1.8px}
+.mid{text-anchor:middle}
+@keyframes dash{to{stroke-dashoffset:-11}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.dot{animation:blink 1.6s ease-in-out infinite}
+.lane{fill:none;stroke-width:2;stroke-dasharray:5 6;opacity:.6;animation:dash .9s linear infinite}
+.bad{animation:badvis 6s linear infinite}
+@keyframes badvis{0%{opacity:0}4%{opacity:1}52%{opacity:1}56%,100%{opacity:0}}
+.x{opacity:0;animation:xshow 6s linear infinite;transform-box:fill-box;transform-origin:center}
+@keyframes xshow{0%,50%{opacity:0;transform:scale(.4)}56%{opacity:1;transform:scale(1.25)}62%,86%{opacity:1;transform:scale(1)}92%,100%{opacity:0}}
+.xt{opacity:0;animation:xtshow 6s linear infinite}
+@keyframes xtshow{0%,52%{opacity:0}58%,86%{opacity:1}92%,100%{opacity:0}}
+.ok{opacity:0;animation:okshow 6s linear infinite}
+@keyframes okshow{0%,72%{opacity:0}78%,92%{opacity:1}98%,100%{opacity:0}}
+
+</style>
+<rect width="1200" height="390" rx="22" fill="url(#bg)"/>
+<rect width="1200" height="390" rx="22" fill="url(#dots)"/>
+<circle class="dot" cx="42" cy="42" r="5" fill="#69f0ae"/><text class="h" x="58" y="47">THE DATABASE IS THE LOCK, NOT THE UI</text>
+<rect x="80" y="70" width="220" height="140" rx="16" fill="#00382f" stroke="#80cbc4" stroke-width="1.6"/>
+<text class="k mid" x="190" y="100" fill="#80cbc4">BROWSER UI</text><text class="ti mid" x="190" y="138" style="font-size:16px">hides buttons</text><text class="sm mid" x="190" y="164">cosmetic only</text>
+<rect x="360" y="70" width="220" height="140" rx="16" fill="#00382f" stroke="#a78bfa" stroke-width="1.6"/>
+<text class="k mid" x="470" y="100" fill="#a78bfa">SUPABASE AUTH</text><text class="ti mid" x="470" y="138" style="font-size:16px">JWT carries the role</text><text class="sm mid" x="470" y="164">app_metadata, not editable</text>
+<rect x="640" y="70" width="220" height="140" rx="16" fill="#00382f" stroke="#69f0ae" stroke-width="2.6"/>
+<text class="k mid" x="750" y="100" fill="#69f0ae">ROW LEVEL SECURITY</text><text class="ti mid" x="750" y="138" style="font-size:16px">checked on every query</text><text class="sm mid" x="750" y="164">all 13 tables</text>
+<rect x="640" y="70" width="220" height="140" rx="16" fill="none" stroke="#69f0ae" stroke-opacity=".4" stroke-width="8" style="animation:blink 2.4s ease-in-out infinite"/>
+<rect x="920" y="70" width="220" height="140" rx="16" fill="#00382f" stroke="#ffd54f" stroke-width="1.6"/>
+<text class="k mid" x="1030" y="100" fill="#ffd54f">YOUR ROWS</text><text class="ti mid" x="1030" y="138" style="font-size:16px">students see their own</text><text class="sm mid" x="1030" y="164">admins see everything</text>
+<line class="lane" x1="70" y1="258" x2="1140" y2="258" stroke="#69f0ae"/><line class="lane" x1="70" y1="322" x2="640" y2="322" stroke="#ff8a80"/>
+<text class="sm" x="70" y="246" style="fill:#69f0ae;font-weight:600">read my own notes</text><text class="sm" x="70" y="310" style="fill:#ff8a80;font-weight:600">forge an admin reply</text>
+<circle r="7" fill="#69f0ae" filter="url(#glow)"><animateMotion dur="6s" repeatCount="indefinite" path="M70,258 L1120,258" calcMode="linear"/></circle>
+<g class="bad"><circle r="7" fill="#ff8a80" filter="url(#glow)"><animateMotion dur="6s" repeatCount="indefinite" path="M70,322 L628,322 L628,322" keyPoints="0;1;1" keyTimes="0;.52;1" calcMode="linear"/></circle></g>
+<g class="x"><circle cx="632" cy="322" r="15" fill="#3b0d0d" stroke="#ff8a80" stroke-width="2"/><path d="M626,316 L638,328 M638,316 L626,328" stroke="#ff8a80" stroke-width="2.6" stroke-linecap="round"/></g>
+<text class="ds xt" x="662" y="327" style="fill:#ff8a80;font-weight:600">blocked in the database</text>
+<g class="ok"><circle cx="1030" cy="258" r="15" fill="#0d3b25" stroke="#69f0ae" stroke-width="2"/><path d="M1023,258 L1028,264 L1038,252" fill="none" stroke="#69f0ae" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 470" width="1200" height="470" role="img" aria-labelledby="t d">
+<title id="t">Architecture</title>
+<desc id="d">A vanilla JavaScript PWA talks to Supabase for auth, Postgres with row level security and storage, and to an Edge Function that holds the Gemini key.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00261f"/><stop offset=".55" stop-color="#004d40"/><stop offset="1" stop-color="#00695c"/></linearGradient>
+<pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#ffffff" fill-opacity=".09"/></pattern>
+<filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#80cbc4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<style>
+text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.h{font-size:13px;font-weight:700;letter-spacing:2px;fill:#80cbc4}
+.ti{font-size:21px;font-weight:700;fill:#fff}
+.ds{font-size:15px;fill:#b2dfdb}
+.sm{font-size:13px;fill:#b2dfdb}
+.k{font-size:11px;font-weight:700;letter-spacing:1.8px}
+.mid{text-anchor:middle}
+@keyframes dash{to{stroke-dashoffset:-11}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.dot{animation:blink 1.6s ease-in-out infinite}
+.flowl{fill:none;stroke-width:2;stroke-dasharray:5 6;opacity:.65;animation:dash .9s linear infinite}
+.pulse{animation:pl 3s ease-in-out infinite}@keyframes pl{0%,100%{opacity:.10}50%{opacity:.26}}
+
+</style>
+<rect width="1200" height="470" rx="22" fill="url(#bg)"/>
+<rect width="1200" height="470" rx="22" fill="url(#dots)"/>
+<circle class="dot" cx="42" cy="42" r="5" fill="#69f0ae"/><text class="h" x="58" y="47">UNDER THE HOOD</text>
+<rect class="pulse" x="54" y="124" width="352" height="232" rx="22" fill="#ffd54f"/>
+<g><rect x="60" y="130" width="340" height="220" rx="14" fill="#00382f" stroke="#ffd54f" stroke-width="1.8"/>
+<text class="k" x="80" y="154" fill="#ffd54f">BROWSER</text>
+<text class="ti" x="80" y="180">Vanilla JS PWA</text>
+<text class="sm" x="80" y="202"></text></g>
+<text class="sm" x="80" y="204">index.html · style.css</text>
+<text class="sm" x="80" y="228">app.js · utils.js</text>
+<text class="sm" x="80" y="262">Service worker: offline shell</text>
+<text class="sm" x="80" y="286">and cached CDN scripts</text>
+<text class="sm" x="80" y="322" style="fill:#ffd54f">No framework. No bundler.</text>
+<rect x="620" y="76" width="520" height="262" rx="18" fill="#ffffff" fill-opacity=".05" stroke="#ffffff" stroke-opacity=".22"/>
+<text class="k" x="644" y="104" fill="#69f0ae">SUPABASE</text>
+<rect x="644" y="118" width="472" height="60" rx="12" fill="#00382f" stroke="#a78bfa" stroke-width="1.6"/><text class="k" x="662" y="140" fill="#a78bfa">IDENTITY</text><text x="662" y="164" style="font-size:17px;font-weight:700;fill:#fff">Auth</text><text class="sm" x="1096" y="164" text-anchor="end">Email and Google, role in app_metadata</text>
+<rect x="644" y="190" width="472" height="60" rx="12" fill="#00382f" stroke="#38bdf8" stroke-width="1.6"/><text class="k" x="662" y="212" fill="#38bdf8">DATA</text><text x="662" y="236" style="font-size:17px;font-weight:700;fill:#fff">Postgres + RLS</text><text class="sm" x="1096" y="236" text-anchor="end">13 tables, every one behind row level security</text>
+<rect x="644" y="262" width="472" height="60" rx="12" fill="#00382f" stroke="#ffb74d" stroke-width="1.6"/><text class="k" x="662" y="284" fill="#ffb74d">FILES</text><text x="662" y="308" style="font-size:17px;font-weight:700;fill:#fff">Storage</text><text class="sm" x="1096" y="308" text-anchor="end">pdfs bucket, admin-only writes</text>
+<g><rect x="620" y="370" width="330" height="84" rx="14" fill="#00382f" stroke="#f48fb1" stroke-width="1.8"/>
+<text class="k" x="640" y="394" fill="#f48fb1">EDGE FUNCTION</text>
+<text class="ti" x="640" y="420">gemini-proxy</text>
+<text class="sm" x="640" y="442"></text></g>
+<text class="sm" x="640" y="437">The Gemini key lives here</text>
+<rect x="1000" y="384" width="140" height="56" rx="14" fill="#00382f" stroke="#f48fb1" stroke-width="1.8"/><text class="ti mid" x="1070" y="418">Gemini</text>
+<path class="flowl" d="M400,190 C 500,190 520,220 644,220" stroke="#38bdf8"/><path class="flowl" d="M400,290 C 500,290 520,412 620,412" stroke="#f48fb1"/><path class="flowl" d="M950,412 L1000,412" stroke="#f48fb1" marker-end="url(#ah)"/>
+<rect x="440" y="178" width="130" height="24" rx="12" fill="#00261f" stroke="#38bdf8" stroke-opacity=".6"/><text class="sm mid" x="505" y="195" style="fill:#38bdf8;font-weight:600">supabase-js</text>
+<rect x="460" y="330" width="86" height="24" rx="12" fill="#00261f" stroke="#f48fb1" stroke-opacity=".6"/><text class="sm mid" x="503" y="347" style="fill:#f48fb1;font-weight:600">chat</text>
+<circle r="6" fill="#38bdf8" filter="url(#glow)"><animateMotion dur="3.2s" begin="0s" repeatCount="indefinite" path="M400,190 C 500,190 520,220 644,220" calcMode="linear"/></circle>
+<circle r="6" fill="#f48fb1" filter="url(#glow)"><animateMotion dur="3.6s" begin="1.2s" repeatCount="indefinite" path="M400,290 C 500,290 520,412 620,412" calcMode="linear"/></circle>
+<circle r="6" fill="#f48fb1" filter="url(#glow)"><animateMotion dur="1.4s" begin="2.4s" repeatCount="indefinite" path="M950,412 L1000,412" calcMode="linear"/></circle>
+</svg>

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 796" width="1200" height="796" role="img" aria-labelledby="t d">
+<title id="t">A study day in order</title>
+<desc id="d">Seven moments in a student&#x27;s day and the StudyPlanner feature for each, from the 07:30 dashboard check-in to planning tomorrow at 21:00.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00261f"/><stop offset=".55" stop-color="#004d40"/><stop offset="1" stop-color="#00695c"/></linearGradient>
+<pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" fill="#ffffff" fill-opacity=".09"/></pattern>
+<filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#80cbc4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<style>
+text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.h{font-size:13px;font-weight:700;letter-spacing:2px;fill:#80cbc4}
+.ti{font-size:21px;font-weight:700;fill:#fff}
+.ds{font-size:15px;fill:#b2dfdb}
+.sm{font-size:13px;fill:#b2dfdb}
+.k{font-size:11px;font-weight:700;letter-spacing:1.8px}
+.mid{text-anchor:middle}
+@keyframes dash{to{stroke-dashoffset:-11}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.dot{animation:blink 1.6s ease-in-out infinite}
+.card{opacity:.55;animation:lit 14s ease-in-out infinite}
+@keyframes lit{0%{opacity:.55}3%,12%{opacity:1}16%,100%{opacity:.55}}
+.flowl{stroke:#80cbc4;stroke-width:2;stroke-dasharray:5 6;opacity:.6;animation:dash .9s linear infinite}
+
+</style>
+<rect width="1200" height="796" rx="22" fill="url(#bg)"/>
+<rect width="1200" height="796" rx="22" fill="url(#dots)"/>
+<circle class="dot" cx="42" cy="42" r="5" fill="#69f0ae"/><text class="h" x="58" y="47">A STUDY DAY, IN ORDER</text>
+<line class="flowl" x1="196" y1="127.0" x2="196" y2="643.0"/>
+<g class="card" style="animation-delay:0s">
+<text x="166" y="134.0" text-anchor="end" style="font-size:20px;font-weight:700;fill:#ffd54f;font-variant-numeric:tabular-nums">07:30</text>
+<circle cx="196" cy="127.0" r="9" fill="#00382f" stroke="#ffd54f" stroke-width="2.5"/>
+<rect x="230" y="93.0" width="930" height="68" rx="16" fill="#ffffff" fill-opacity=".07" stroke="#ffffff" stroke-opacity=".18"/>
+<text class="ti" x="254" y="123.0">Check in</text>
+<text class="ds" x="254" y="148.0">Streak, task progress, due reminders and days left to your next exam.</text>
+<rect x="1034.6" y="114.0" width="107.39999999999999" height="26" rx="13" fill="#ffd54f" fill-opacity=".14" stroke="#ffd54f" stroke-opacity=".5"/>
+<text class="k mid" x="1088.3" y="131.0" fill="#ffd54f">DASHBOARD</text>
+</g>
+<g class="card" style="animation-delay:2s">
+<text x="166" y="220.0" text-anchor="end" style="font-size:20px;font-weight:700;fill:#ffd54f;font-variant-numeric:tabular-nums">09:00</text>
+<circle cx="196" cy="213.0" r="9" fill="#00382f" stroke="#ffd54f" stroke-width="2.5"/>
+<rect x="230" y="179.0" width="930" height="68" rx="16" fill="#ffffff" fill-opacity=".07" stroke="#ffffff" stroke-opacity=".18"/>
+<text class="ti" x="254" y="209.0">Focus</text>
+<text class="ds" x="254" y="234.0">Pomodoro study, short and long breaks. Runs on the wall clock, so tabs never drift.</text>
+<rect x="1043.2" y="200.0" width="98.8" height="26" rx="13" fill="#ffd54f" fill-opacity=".14" stroke="#ffd54f" stroke-opacity=".5"/>
+<text class="k mid" x="1092.6" y="217.0" fill="#ffd54f">POMODORO</text>
+</g>
+<g class="card" style="animation-delay:4s">
+<text x="166" y="306.0" text-anchor="end" style="font-size:20px;font-weight:700;fill:#ffd54f;font-variant-numeric:tabular-nums">11:00</text>
+<circle cx="196" cy="299.0" r="9" fill="#00382f" stroke="#ffd54f" stroke-width="2.5"/>
+<rect x="230" y="265.0" width="930" height="68" rx="16" fill="#ffffff" fill-opacity=".07" stroke="#ffffff" stroke-opacity=".18"/>
+<text class="ti" x="254" y="295.0">Capture</text>
+<text class="ds" x="254" y="320.0">Tagged, searchable notes, next to the PDFs your admins publish per semester.</text>
+<rect x="1069.0" y="286.0" width="73.0" height="26" rx="13" fill="#ffd54f" fill-opacity=".14" stroke="#ffd54f" stroke-opacity=".5"/>
+<text class="k mid" x="1105.5" y="303.0" fill="#ffd54f">NOTES</text>
+</g>
+<g class="card" style="animation-delay:6s">
+<text x="166" y="392.0" text-anchor="end" style="font-size:20px;font-weight:700;fill:#ffd54f;font-variant-numeric:tabular-nums">14:00</text>
+<circle cx="196" cy="385.0" r="9" fill="#00382f" stroke="#ffd54f" stroke-width="2.5"/>
+<rect x="230" y="351.0" width="930" height="68" rx="16" fill="#ffffff" fill-opacity=".07" stroke="#ffffff" stroke-opacity=".18"/>
+<text class="ti" x="254" y="381.0">Revise</text>
+<text class="ds" x="254" y="406.0">Build flashcards per subject and flip through the deck.</text>
+<rect x="1026.0" y="372.0" width="116.0" height="26" rx="13" fill="#ffd54f" fill-opacity=".14" stroke="#ffd54f" stroke-opacity=".5"/>
+<text class="k mid" x="1084.0" y="389.0" fill="#ffd54f">FLASHCARDS</text>
+</g>
+<g class="card" style="animation-delay:8s">
+<text x="166" y="478.0" text-anchor="end" style="font-size:20px;font-weight:700;fill:#ffd54f;font-variant-numeric:tabular-nums">16:00</text>
+<circle cx="196" cy="471.0" r="9" fill="#00382f" stroke="#ffd54f" stroke-width="2.5"/>
+<rect x="230" y="437.0" width="930" height="68" rx="16" fill="#ffffff" fill-opacity=".07" stroke="#ffffff" stroke-opacity=".18"/>
+<text class="ti" x="254" y="467.0">Ask</text>
+<text class="ds" x="254" y="492.0">A Gemini-powered tutor, or a study request to your admin with the reply in the app.</text>
+<rect x="1000.2" y="458.0" width="141.8" height="26" rx="13" fill="#ffd54f" fill-opacity=".14" stroke="#ffd54f" stroke-opacity=".5"/>
+<text class="k mid" x="1071.1" y="475.0" fill="#ffd54f">AI + REQUESTS</text>
+</g>
+<g class="card" style="animation-delay:10s">
+<text x="166" y="564.0" text-anchor="end" style="font-size:20px;font-weight:700;fill:#ffd54f;font-variant-numeric:tabular-nums">18:00</text>
+<circle cx="196" cy="557.0" r="9" fill="#00382f" stroke="#ffd54f" stroke-width="2.5"/>
+<rect x="230" y="523.0" width="930" height="68" rx="16" fill="#ffffff" fill-opacity=".07" stroke="#ffffff" stroke-opacity=".18"/>
+<text class="ti" x="254" y="553.0">Track</text>
+<text class="ds" x="254" y="578.0">Study time, attendance calendars, and semester marks with CGPA trends.</text>
+<rect x="1034.6" y="544.0" width="107.39999999999999" height="26" rx="13" fill="#ffd54f" fill-opacity=".14" stroke="#ffd54f" stroke-opacity=".5"/>
+<text class="k mid" x="1088.3" y="561.0" fill="#ffd54f">ANALYTICS</text>
+</g>
+<g class="card" style="animation-delay:12s">
+<text x="166" y="650.0" text-anchor="end" style="font-size:20px;font-weight:700;fill:#ffd54f;font-variant-numeric:tabular-nums">21:00</text>
+<circle cx="196" cy="643.0" r="9" fill="#00382f" stroke="#ffd54f" stroke-width="2.5"/>
+<rect x="230" y="609.0" width="930" height="68" rx="16" fill="#ffffff" fill-opacity=".07" stroke="#ffffff" stroke-opacity=".18"/>
+<text class="ti" x="254" y="639.0">Plan tomorrow</text>
+<text class="ds" x="254" y="664.0">Exam timetable, recurring reminders and tasks. Export everything as CSV.</text>
+<rect x="1051.8" y="630.0" width="90.19999999999999" height="26" rx="13" fill="#ffd54f" fill-opacity=".14" stroke="#ffd54f" stroke-opacity=".5"/>
+<text class="k mid" x="1096.9" y="647.0" fill="#ffd54f">PLANNER</text>
+</g>
+<circle r="8" fill="#fff" filter="url(#glow)"><animateMotion dur="14s" repeatCount="indefinite" path="M196,127.0 L196,643.0" calcMode="linear"/></circle>
+<rect x="40" y="698" width="1120" height="70" rx="16" fill="none" stroke="#ffd54f" stroke-opacity=".55" stroke-dasharray="7 7"/>
+<text class="k" x="68" y="728" fill="#ffd54f">FOR ADMINS</text>
+<text class="ds" x="68" y="752">Student reports and analytics, PDF uploads per semester, attendance overview, user management, and a queue of study requests.</text>
+</svg>
